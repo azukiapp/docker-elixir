@@ -6,7 +6,9 @@ Base docker image to run **Elixir** applications in [`azk`](http://azk.io)
 Versions (tags)
 ---
 
+<versions>
 - [`latest`, `1`, `1.0`, `1.0.3`](https://github.com/azukiapp/docker-elixir/blob/master/Dockerfile)
+</versions>
 
 Image content:
 ---
