@@ -7,7 +7,7 @@ Versions (tags)
 ---
 
 <versions>
-- [`latest`, `1`, `1.0`, `1.0.3`](https://github.com/azukiapp/docker-elixir/blob/master/Dockerfile)
+- [`latest`, `1`, `1.0`, `1.0.3`](https://github.com/azukiapp/docker-elixir/blob/master/1.0/Dockerfile)
 </versions>
 
 Image content:
