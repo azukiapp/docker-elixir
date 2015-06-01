@@ -49,7 +49,7 @@ systems({
     mounts: {
       '/azk/#{manifest.dir}': path("."),
     },
-    scalable: {"default": 2},
+    scalable: {"default": 1},
     http: {
       domains: [ "#{system.name}.#{azk.default_domain}" ]
     },
