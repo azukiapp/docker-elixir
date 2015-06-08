@@ -48,7 +48,11 @@ systems({
     command: "mix run --no-halt",
     wait: {"retry": 20, "timeout": 1000},
     mounts: {
-      '/azk/#{manifest.dir}': path("."),
+      "/azk/#{manifest.dir}"                : sync("."),
+      // Elixir
+      "/root/.hex"                          : path(env.HOME + '/.hex'),
+      "/azk/#{manifest.dir}/deps"           : persistent("#{manifest.dir}/deps"),
+      "/azk/#{manifest.dir}/_build"         : persistent("#{manifest.dir}/_build"),
     },
     scalable: {"default": 1},
     http: {
@@ -83,12 +87,12 @@ systems({
     wait: {"retry": 20, "timeout": 1000},
     mounts: {
       "/azk/#{manifest.dir}"                : sync("."),
-      // Dependêncies
+      // Elixir
+      "/root/.hex"                          : path(env.HOME + '/.hex'),
       "/azk/#{manifest.dir}/deps"           : persistent("#{manifest.dir}/deps"),
-      "/azk/#{manifest.dir}/.hex"           : persistent("#{manifest.dir}/.hex"),
-      "/azk/#{manifest.dir}/node_modules"   : persistent("#{manifest.dir}/node_modules"),
-      // Builds
       "/azk/#{manifest.dir}/_build"         : persistent("#{manifest.dir}/_build"),
+      // Phoenix
+      "/azk/#{manifest.dir}/node_modules"   : persistent("#{manifest.dir}/node_modules"),
       "/azk/#{manifest.dir}/priv/static/js" : persistent("#{manifest.dir}/priv/static/js"),
       "/azk/#{manifest.dir}/priv/static/css": persistent("#{manifest.dir}/priv/static/css"),
     },
@@ -100,8 +104,7 @@ systems({
       http: "4000",
     },
     envs: {
-      // set instances variables
-      HEX_HOME: "/azk/#{manifest.dir}/.hex"
+      MIX_ENV: "dev"
     },
   },
 });
