@@ -12,7 +12,7 @@ RUN  PRECOMPILED_ELIXIR_DIR="/tmp/elixir-v${ELIXIR_VERSION}-precompiled" \
     ${ERLANG}-compiler${REPOSITORY} ${ERLANG}-crypto${REPOSITORY} \
     ${ERLANG}-syntax-tools${REPOSITORY} ${ERLANG}-inets${REPOSITORY} ${ERLANG}-ssl${REPOSITORY} \
     ${ERLANG}-public-key${REPOSITORY} ${ERLANG}-asn1${REPOSITORY} ${ERLANG}-sasl${REPOSITORY} \
-    ${ERLANG}-erl-interface${REPOSITORY} ${ERLANG}-dev${REPOSITORY} \
+    ${ERLANG}-erl-interface${REPOSITORY} ${ERLANG}-dev${REPOSITORY} ${ERLANG}-tools${REPOSITORY} \
     " \
   && apk add --update $PKG_DEPS \
   && mkdir -p $PRECOMPILED_ELIXIR_DIR \
