@@ -7,7 +7,7 @@ Versions (tags)
 ---
 
 <versions>
-- [`latest`, `1`, `1.0`, `1.0.3`](https://github.com/azukiapp/docker-elixir/blob/master/1.0/Dockerfile)
+- [`latest`, `1`, `1.0`, `1.0.5`](https://github.com/azukiapp/docker-elixir/blob/master/1.0/Dockerfile)
 </versions>
 
 Image content:
@@ -16,9 +16,6 @@ Image content:
 - Ubuntu 14.04
 - Git
 - VIM
-
-Database:
-
 - Erlang
 - Elixir
 
