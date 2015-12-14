@@ -26,14 +26,21 @@ systems({
   "elixir": {
     // Dependent systems
     depends: [], // postgres, mysql, mongodb ...
-    // More images:  http://images.azk.io
-    image: {"docker": "gullitmiranda/elixir"},
+    // More info about elixir image: http://images.azk.io/#/elixir?from=images-azkfile-elixir
+    image: {"docker": "azukiapp/elixir:1.0"},
+    // or use Dockerfile to custimize your image
+    //image: {"dockerfile": "./Dockerfile"},
     // Steps to execute before running instances
     provision: [
-      "mix do deps.get, compile"
+      // "mix local.hex --force", // update mix
+      "mix do deps.get, compile",
+      // Phoenix provision steps
+      // "mix ecto.create",
+      // "mix ecto.migrate",
     ],
     workdir: "/azk/#{manifest.dir}",
     command: "mix run --no-halt",
+    // command: "mix phoenix.server --no-deps-check",
     wait: {"retry": 20, "timeout": 1000},
     mounts: {
       "/azk/#{manifest.dir}"       : sync("."),
@@ -52,64 +59,42 @@ systems({
     envs: {
       // set instances variables
       HEX_HOME: "/azk/#{manifest.dir}/.hex/"
-    },
-  },
-  // Or Phoenix Framework
-  "phoenix": {
-    // Dependent systems
-    depends: [], // postgres, mysql, mongodb ...
-    // More images:  http://images.azk.io
-    image: {"docker": "gullitmiranda/elixir"},
-    // Steps to execute before running instances
-    provision: [
-      // "mix local.hex --force", // update mix
-      "npm install",
-      "mix do deps.get, compile",
-      "mix ecto.create",
-      "mix ecto.migrate",
-    ],
-    workdir: '/azk/#{manifest.dir}',
-    shell: "/bin/bash",
-    // Phoenix Framework
-    command: "mix phoenix.server --no-deps-check",
-    wait: {"retry": 20, "timeout": 1000},
-    mounts: {
-      "/azk/#{manifest.dir}"                : sync("."),
-      // Elixir
-      "/root/.hex"                          : persistent("#{system.name}/.hex"),
-      "/azk/#{manifest.dir}/deps"           : persistent("#{system.name}/deps"),
-      "/azk/#{manifest.dir}/_build"         : persistent("#{system.name}/_build"),
-      // Phoenix
-      "/azk/#{manifest.dir}/node_modules"   : persistent("#{system.name}/node_modules"),
-      "/azk/#{manifest.dir}/priv/static/js" : persistent("#{system.name}/priv/static/js"),
-      "/azk/#{manifest.dir}/priv/static/css": persistent("#{system.name}/priv/static/css"),
-    },
-    scalable: {"default": 1},
-    http: {
-      domains: [ "#{system.name}.#{azk.default_domain}" ]
-    },
-    ports: {
-      http: "4000",
-    },
-    envs: {
       MIX_ENV: "dev"
     },
   },
 });
 ```
 
-### Usage with `docker`
+## Extend image with `Dockerfile`
 
-To create the image `gullitmiranda/elixir`, execute the following command on the elixir folder:
+Install more packages:
+
+```dockerfile
+# Dockerfile
+FROM azukiapp/elixir:1.0
+
+# install nodejs
+# install postgresql-client
+RUN  apk add --update nodejs postgresql-client \
+  && rm -rf /var/cache/apk/* /var/tmp/* \
+
+CMD ["iex"]
+```
+
+To build the image:
 
 ```sh
-$ docker build -t gullitmiranda/elixir .
+$ docker build -t azukiapp/elixir:1.0 .
 ```
+
+To more packages, access [alpine packages][alpine-packages]
+
+### Usage with `docker`
 
 To run the image and bind to port 4000:
 
 ```sh
-$ docker run -it --rm --name my-app -p 4000:4000 -v "$PWD":/myapp -w /myapp gullitmiranda/elixir mix run --no-halt
+$ docker run -it --name my-app -p 4000:4000 -v "$PWD":/myapp -w /myapp azukiapp/elixir:1.0 iex
 ```
 
 Logs
@@ -128,4 +113,7 @@ $ docker logs <CONTAINER_ID>
 Azuki Dockerfiles distributed under the [Apache License][license].
 
 [azk]: http://azk.io
+[alpine-packages]: http://pkgs.alpinelinux.org/
+
+[issues]: https://github.com/azukiapp/docker-elixir/issues
 [license]: https://github.com/azukiapp/docker-elixir/blob/master/LICENSE
