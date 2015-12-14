@@ -11,7 +11,8 @@ Elixir Versions (tags)
 ---
 
 <versions>
-- [`latest`, `1`, `1.0`, `1.0.5`](https://github.com/azukiapp/docker-elixir/blob/master/1.0/Dockerfile)
+- [`latest`, `1`, `1.1`, `1.1.1`](https://github.com/azukiapp/docker-elixir/blob/master/1.1/Dockerfile)
+- [`1.0`, `1.0.5`](https://github.com/azukiapp/docker-elixir/blob/master/1.0/Dockerfile)
 </versions>
 
 Image content use http://images.azk.io/#/erlang (v18)
