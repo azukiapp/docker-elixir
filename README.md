@@ -3,6 +3,10 @@
 
 Base docker image to run **Elixir** applications in [`azk`][azk]
 
+[![Circle CI](https://circleci.com/gh/azukiapp/docker-elixir.svg?style=svg)][circle-ci]
+[![ImageLayers Size](https://img.shields.io/imagelayers/image-size/azukiapp/elixir/latest.svg?style=plastic)][imageslayers]
+[![ImageLayers Layers](https://img.shields.io/imagelayers/layers/azukiapp/elixir/latest.svg?style=plastic)][imageslayers]
+
 Elixir Versions (tags)
 ---
 
@@ -114,6 +118,9 @@ Azuki Dockerfiles distributed under the [Apache License][license].
 
 [azk]: http://azk.io
 [alpine-packages]: http://pkgs.alpinelinux.org/
+
+[circle-ci]: https://circleci.com/gh/azukiapp/docker-elixir
+[imageslayers]: https://imagelayers.io/?images=azukiapp/elixir:latest
 
 [issues]: https://github.com/azukiapp/docker-elixir/issues
 [license]: https://github.com/azukiapp/docker-elixir/blob/master/LICENSE

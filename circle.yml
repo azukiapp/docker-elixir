@@ -1,0 +1,45 @@
+general:
+  artifacts:
+    - "images"
+  branches:
+    ignore:
+      - /rootfs-.*/
+
+machine:
+  environment:
+    AZK_REMOVE_CONTAINER: false
+    AZK_DISABLE_TRACKER: true
+
+  pre:
+    - |
+      # install docker
+      sudo curl -Ls -o /usr/bin/docker 'https://s3-external-1.amazonaws.com/circle-downloads/docker-1.9.0-circleci'
+      sudo chmod 0755 /usr/bin/docker
+    - |
+      # force install azk
+      curl -Ls https://gist.github.com/gullitmiranda/f80e1b83363720998db1/raw/d826472e07fdbbcf9cfc60c192e0aad90583b504/install_azk_forced.sh | bash
+
+  services:
+    - docker
+
+dependencies:
+  cache_directories:
+    - "~/.azk"
+    - "~/docker"
+  override:
+    - docker info
+    - azk agent start --quiet
+    - azk doctor
+
+test:
+  override:
+    - make -e build
+    - make -e test
+
+deployment:
+  hub:
+    branch: master
+    commands:
+      - |
+        # Trigger all tags/branchs for this automated build.
+        curl -H "Content-Type: application/json" --data '{"build": true}' -X POST https://registry.hub.docker.com/u/azukiapp/postgres/trigger/${DOCKER_TOKEN}/
