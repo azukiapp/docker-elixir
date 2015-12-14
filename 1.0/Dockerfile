@@ -1,7 +1,7 @@
 FROM azukiapp/erlang:18
 MAINTAINER Azuki <support@azukiapp.com>
 
-ENV ELIXIR_VERSION=1.0.4
+ENV ELIXIR_VERSION=1.0.5
 
 # Install local Elixir hex and rebar
 RUN  PRECOMPILED_ELIXIR_DIR="/tmp/elixir-v${ELIXIR_VERSION}-precompiled" \
