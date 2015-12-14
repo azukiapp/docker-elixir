@@ -1,36 +1,26 @@
 [azukiapp/elixir](http://images.azk.io/#/elixir)
 ==================
 
-Base docker image to run **Elixir** applications in [`azk`](http://azk.io)
+Base docker image to run **Elixir** applications in [`azk`][azk]
 
-Versions (tags)
+Elixir Versions (tags)
 ---
 
 <versions>
-- [`latest`, `1`, `1.0`, `1.0.5`](https://github.com/gullitmiranda/docker-elixir/blob/master/1.0.5/Dockerfile)
+- [`latest`, `1`, `1.0`, `1.0.5`](https://github.com/azukiapp/docker-elixir/blob/master/1.0/Dockerfile)
 </versions>
 
-Image content:
----
-
-- Alpine 3.2
-- Git
-- VIM
-
-Database:
-
-- Erlang
-- Elixir
+Image content use http://images.azk.io/#/erlang (v18)
 
 ### Usage with `azk`
 
-Example of using this image with [azk](http://azk.io):
+Example of using this image with [azk][azk]:
 
 ```js
 /**
  * Documentation: http://docs.azk.io/Azkfile.js
  */
- 
+
 // Adds the systems that shape your system
 systems({
   "elixir": {
@@ -137,4 +127,5 @@ $ docker logs <CONTAINER_ID>
 
 Azuki Dockerfiles distributed under the [Apache License][license].
 
-[license]: ./LICENSE
+[azk]: http://azk.io
+[license]: https://github.com/azukiapp/docker-elixir/blob/master/LICENSE
