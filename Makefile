@@ -1,13 +1,18 @@
-DOCKER=$(shell if [ "$(which adocker)" ]; then which adocker; else which docker; fi)
+IMAGE_NAME := "azukiapp/elixir"
 
-.PHONY: all
-all:
-	adocker build -t gullitmiranda/elixir 1.0.5
-	adocker build -t gullitmiranda/elixir:1.0.5 1.0.5
-	adocker build -t gullitmiranda/elixir:1.0.4 1.0.4
+# bins
+DOCKER := $(shell which adocker || which docker)
 
-.PHONY: no-cache
-no-cache:
-	adocker build --rm --no-cache -t gullitmiranda/elixir 1.0.5
-	adocker build --rm --no-cache -t gullitmiranda/elixir:1.0.5 1.0.5
-	adocker build --rm --no-cache -t gullitmiranda/elixir:1.0.4 1.0.4
+all: build
+
+build:
+	${DOCKER} build -t ${IMAGE_NAME} 1.0
+	${DOCKER} build -t ${IMAGE_NAME}:1.0 1.0
+	${DOCKER} build -t ${IMAGE_NAME}:1.0.5 1.0
+
+build-no-cache:
+	${DOCKER} build --rm --no-cache -t ${IMAGE_NAME} 1.0
+	${DOCKER} build --rm --no-cache -t ${IMAGE_NAME}:1.0 1.0
+	${DOCKER} build --rm --no-cache -t ${IMAGE_NAME}:1.0.5 1.0
+
+.PHONY: all build build-no-cache

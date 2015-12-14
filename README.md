@@ -8,9 +8,6 @@ Versions (tags)
 
 <versions>
 - [`latest`, `1`, `1.0`, `1.0.5`](https://github.com/gullitmiranda/docker-elixir/blob/master/1.0.5/Dockerfile)
-- [`1.0.4`](https://github.com/gullitmiranda/docker-elixir/blob/v1.0.4/1.0.4/Dockerfile)
-- [`1.0.4-etp17`](https://github.com/gullitmiranda/docker-elixir/blob/v1.0.4-etp17/1.0.4/Dockerfile)
-
 </versions>
 
 Image content:
