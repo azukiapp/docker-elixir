@@ -2,31 +2,25 @@
  * Documentation: http://docs.azk.io/Azkfile.js
  */
 // Adds the systems that shape your system
+
+var version = env.ELIXIR_TEST_VERSION;
+var pattern = env.ELIXIR_TEST_VERSION_PATTERN;
+
 systems({
-  "v11": {
-    image: {"docker": "azukiapp/elixir:1.1"},
+  "elixir": {
+    image: { "docker": "azukiapp/elixir:" + version },
     workdir: "/azk/#{manifest.dir}/test",
     mounts: {
       '/azk/#{manifest.dir}/test'       : sync("./test"),
-      '/azk/#{manifest.dir}/test/deps'  : persistent("./test/deps"),
-      '/azk/#{manifest.dir}/test/_build': persistent("./test/_build"),
-      '/root/.hex'                      : persistent("#{env.HOME}/.hex"),
+      '/azk/#{manifest.dir}/test/deps'  : persistent("./test-" + version + "/deps"),
+      '/azk/#{manifest.dir}/test/_build': persistent("./test-" + version + "/_build"),
     },
     wait: false,
     scalable: {default: 0},
     envs: {
       // if you're setting it in a .env file
       MIX_ENV: "test",
-      IEX_VERSION: "1.1.1"
-    },
-  },
-  v10: {
-    extends: "v11",
-    image: {"docker": "azukiapp/elixir:1.0"},
-    envs: {
-      // if you're setting it in a .env file
-      MIX_ENV: "test",
-      IEX_VERSION: "1.0.5"
+      IEX_VERSION_PATTERN: pattern,
     },
   },
 });
