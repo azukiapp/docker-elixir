@@ -11,7 +11,8 @@ Elixir Versions (tags)
 ---
 
 <versions>
-- [`latest`, `1`, `1.1`, `1.1.1`](https://github.com/azukiapp/docker-elixir/blob/master/1.1/Dockerfile)
+- [`latest`, `1`, `1.2`, `1.2.0`](https://github.com/azukiapp/docker-elixir/blob/master/1.2/Dockerfile)
+- [`1.1`, `1.1.1`](https://github.com/azukiapp/docker-elixir/blob/master/1.1/Dockerfile)
 - [`1.0`, `1.0.5`](https://github.com/azukiapp/docker-elixir/blob/master/1.0/Dockerfile)
 </versions>
 
