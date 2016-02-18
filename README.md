@@ -116,7 +116,11 @@ $ docker logs <CONTAINER_ID>
 
 ## License
 
-Azuki Dockerfiles distributed under the [Apache License][license].
+"Azuki", "azk" and the Azuki logo are Copyright 2013-2016 Azuki Serviços de Internet LTDA.
+
+**azk** source code is released under [Apache 2 License][LICENSE].
+
+Check LEGAL and LICENSE files for more information.
 
 [azk]: http://azk.io
 [alpine-packages]: http://pkgs.alpinelinux.org/
