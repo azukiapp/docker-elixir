@@ -1,11 +1,10 @@
 [azukiapp/elixir](http://images.azk.io/#/elixir)
 ==================
 
-Base docker image to run **Elixir** applications in [`azk`][azk]
+Base docker image to run **Elixir** applications in [azk.io][azk]
 
-[![Circle CI](https://circleci.com/gh/azukiapp/docker-elixir.svg?style=svg)][circle-ci]
-[![ImageLayers Size](https://img.shields.io/imagelayers/image-size/azukiapp/elixir/latest.svg?style=plastic)][imageslayers]
-[![ImageLayers Layers](https://img.shields.io/imagelayers/layers/azukiapp/elixir/latest.svg?style=plastic)][imageslayers]
+[![Circle CI][circleci-badge]][circleci]
+[![][imagelayers-badge]][imagelayers]
 
 Elixir Versions (tags)
 ---
@@ -125,8 +124,11 @@ Check LEGAL and LICENSE files for more information.
 [azk]: http://azk.io
 [alpine-packages]: http://pkgs.alpinelinux.org/
 
-[circle-ci]: https://circleci.com/gh/azukiapp/docker-elixir
-[imageslayers]: https://imagelayers.io/?images=azukiapp/elixir:latest
+[circleci]: https://circleci.com/gh/azukiapp/docker-elixir
+[circleci-badge]: https://circleci.com/gh/azukiapp/docker-elixir.svg?style=svg
+
+[imagelayers]: https://imagelayers.io/?images=azukiapp/elixir:latest,azukiapp/elixir:1.2,azukiapp/elixir:1.1,azukiapp/elixir:1.0
+[imagelayers-badge]: https://imagelayers.io/badge/azukiapp/elixir:latest.svg
 
 [issues]: https://github.com/azukiapp/docker-elixir/issues
 [license]: https://github.com/azukiapp/docker-elixir/blob/master/LICENSE
