@@ -10,9 +10,10 @@ Elixir Versions (tags)
 ---
 
 <versions>
-- [`latest`, `1`, `1.2`, `1.2.0`](https://github.com/azukiapp/docker-elixir/blob/master/1.2/Dockerfile)
-- [`1.1`, `1.1.1`](https://github.com/azukiapp/docker-elixir/blob/master/1.1/Dockerfile)
-- [`1.0`, `1.0.5`](https://github.com/azukiapp/docker-elixir/blob/master/1.0/Dockerfile)
+- [`latest`, `1`, `1.2`, `1.2.6`](https://github.com/azukiapp/docker-elixir/blob/v1.2.6/1.2/Dockerfile)
+- [`1.2.0`](https://github.com/azukiapp/docker-elixir/blob/v1.2.0/1.2/Dockerfile)
+- [`1.1`, `1.1.1`](https://github.com/azukiapp/docker-elixir/blob/v1.1.1/1.1/Dockerfile)
+- [`1.0`, `1.0.5`](https://github.com/azukiapp/docker-elixir/blob/v1.0.5/1.0/Dockerfile)
 </versions>
 
 Image content use http://images.azk.io/#/erlang (v18)
@@ -32,7 +33,7 @@ systems({
     // Dependent systems
     depends: [], // postgres, mysql, mongodb ...
     // More info about elixir image: http://images.azk.io/#/elixir?from=images-azkfile-elixir
-    image: {"docker": "azukiapp/elixir:1.0"},
+    image: {"docker": "azukiapp/elixir:1.2"},
     // or use Dockerfile to custimize your image
     //image: {"dockerfile": "./Dockerfile"},
     // Steps to execute before running instances
@@ -76,7 +77,7 @@ Install more packages:
 
 ```dockerfile
 # Dockerfile
-FROM azukiapp/elixir:1.0
+FROM azukiapp/elixir:1.2
 
 # install nodejs
 # install postgresql-client
@@ -89,7 +90,7 @@ CMD ["iex"]
 To build the image:
 
 ```sh
-$ docker build -t azukiapp/elixir:1.0 .
+$ docker build -t azukiapp/elixir:1.2 .
 ```
 
 To more packages, access [alpine packages][alpine-packages]
@@ -99,7 +100,7 @@ To more packages, access [alpine packages][alpine-packages]
 To run the image and bind to port 4000:
 
 ```sh
-$ docker run -it --name my-app -p 4000:4000 -v "$PWD":/myapp -w /myapp azukiapp/elixir:1.0 iex
+$ docker run -it --name my-app -p 4000:4000 -v "$PWD":/myapp -w /myapp azukiapp/elixir:1.2 iex
 ```
 
 Logs
