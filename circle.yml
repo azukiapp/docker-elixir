@@ -17,6 +17,7 @@ machine:
     - |
       # force install azk
       curl -Ls https://gist.github.com/gullitmiranda/f80e1b83363720998db1/raw/d826472e07fdbbcf9cfc60c192e0aad90583b504/install_azk_forced.sh | bash
+      azk config set terms_of_use.accepted 1
 
   services:
     - docker
