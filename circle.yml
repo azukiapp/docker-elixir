@@ -12,9 +12,8 @@ machine:
 
   pre:
     - |
-      # install docker
-      sudo curl -Ls -o /usr/bin/docker 'https://s3-external-1.amazonaws.com/circle-downloads/docker-1.9.0-circleci'
-      sudo chmod 0755 /usr/bin/docker
+      # install docker 1.10
+      curl -sSL https://s3.amazonaws.com/circle-downloads/install-circleci-docker.sh | bash -s -- 1.10.0
     - |
       # force install azk
       curl -Ls https://gist.github.com/gullitmiranda/f80e1b83363720998db1/raw/d826472e07fdbbcf9cfc60c192e0aad90583b504/install_azk_forced.sh | bash
