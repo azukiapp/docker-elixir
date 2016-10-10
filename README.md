@@ -10,7 +10,7 @@ Elixir Versions (tags)
 ---
 
 <versions>
-- [`latest`, `1`, `1.3`, `1.3.0`](https://github.com/azukiapp/docker-elixir/blob/v1.3/1.3/Dockerfile)
+- [`latest`, `1`, `1.3`, `1.3.4`](https://github.com/azukiapp/docker-elixir/blob/v1.3/1.3/Dockerfile)
 - [`1.2`, `1.2.6`](https://github.com/azukiapp/docker-elixir/blob/v1.2.6/1.2/Dockerfile)
 - [`1.2.0`](https://github.com/azukiapp/docker-elixir/blob/v1.2.0/1.2/Dockerfile)
 - [`1.1`, `1.1.1`](https://github.com/azukiapp/docker-elixir/blob/v1.1.1/1.1/Dockerfile)
@@ -65,7 +65,6 @@ systems({
     },
     envs: {
       // set instances variables
-      HEX_HOME: "/azk/#{manifest.dir}/.hex/"
       MIX_ENV: "dev"
     },
   },

@@ -21,7 +21,7 @@ build-no-cache:
 
 test:
 	# run bats of test to each version
-	./test.sh 1.3 1.3.0
+	./test.sh 1.3 1.3.4
 	./test.sh 1.2 1.2.6
 	./test.sh 1.1 1.1.1
 	./test.sh 1.0 1.0.5

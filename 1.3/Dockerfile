@@ -1,7 +1,7 @@
 FROM azukiapp/erlang:18
 MAINTAINER Azuki <support@azukiapp.com>
 
-ENV ELIXIR_VERSION=1.3.0
+ENV ELIXIR_VERSION=1.3.4
 
 # Install local Elixir hex and rebar
 RUN  build_packages='curl' \
